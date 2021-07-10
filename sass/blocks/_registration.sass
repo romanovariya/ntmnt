@@ -11,6 +11,9 @@
     justify-content: flex-start
     &__icon
         margin-right: 10px
+        width: 40px
+        height: 35px
+        fill: $yellow
     &__text
         font-size: 30px
         line-height: 1.4
@@ -42,7 +45,7 @@
         flex-direction: column
         flex-basis: 32%
     &__button
-        padding: 25px
+        padding: 20px 25px
         width: 32%
         border-radius: 10px
         background-color: $yellow
@@ -53,28 +56,36 @@
         cursor: pointer
         &:hover
             background-color: darken($yellow, 10%)
-.input-block
+.input-item
     &__label
+        position: relative
+        width: min-content
         font-family: 'Roboto', sans-serif
         font-size: 18px
         line-height: 1.4
         color: $white
         font-weight: normal
         margin-bottom: 5px
-    &__input
-        padding: 25px
-        border-radius: 10px
-        background-color: transparent
-        border: 1px solid $white
+        &::after
+            content: '*'
+            position: absolute
+            top: 0
+            right: -10px
+            color: $yellow
+.input
+    padding: 20px 25px
+    border-radius: 10px
+    background-color: transparent
+    border: 1px solid $white
+    font-family: 'Roboto', sans-serif
+    font-size: 18px
+    line-height: 1.4
+    color: $white
+    font-weight: normal
+    outline: none
+    &::placeholder
         font-family: 'Roboto', sans-serif
         font-size: 18px
         line-height: 1.4
         color: $white
         font-weight: normal
-        outline: none
-        &::placeholder
-            font-family: 'Roboto', sans-serif
-            font-size: 18px
-            line-height: 1.4
-            color: $white
-            font-weight: normal

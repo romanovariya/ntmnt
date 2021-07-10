@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./css/style.css" />
-    <title>Нетмонет</title>
+    <title>Нетмонет - регистрация сотрудника</title>
   </head>
   <body>
     <header class="header">
@@ -19,37 +19,170 @@
     </header>
     <!-- header -->
 
-    <!-- registration -->
+    <main class="main">
+      <!-- registration -->
 
-    <section class="registation">
-      <div class="registration__container container">
-        <div class="registration__title title">
-          <img src="/images/registration.svg" alt="icon" class="title__icon" />
-          <h2 class="title__text">Регистрация сотрудника</h2>
+      <section class="registation">
+        <div class="registration__container container">
+          <div class="registration__title title">
+            <svg class="title__icon">
+              <use xlink:href="sprite.svg#registration"></use>
+            </svg>
+            <h2 class="title__text">Регистрация сотрудника</h2>
+          </div>
+
+          <div class="registration__form">
+            <form action="#" class="form" method="POST">
+              <div class="form__items">
+                <div class="form__item input-item">
+                  <label for="name" class="input-item__label">Имя</label>
+                  <input id="name" type="text" name="name" placeholder="Алина" class="input input-item__input" />
+                </div>
+                <div class="form__item input-item">
+                  <label for="surname" class="input-item__label">Фамилия</label>
+                  <input id="surname" type="text" name="surname" placeholder="Кац" class="input input-item__input" />
+                </div>
+                <div class="form__item input-item">
+                  <label for="phone" class="input-item__label">Телефон</label>
+                  <input id="phone" type="text" name="phone" placeholder="+7 (999) 123-44-55" class="input input-item__input" />
+                </div>
+              </div>
+              <input type="submit" value="Зарегестрировать" class="form__button" />
+            </form>
+          </div>
         </div>
+      </section>
 
-        <div class="registration__form">
-          <form action="#" class="form" method="POST">
-            <div class="form__items">
-              <div class="form__item input-block">
-                <label for="name" class="input-block__label">Имя</label>
-                <input id="name" type="text" name="name" placeholder="Алина" class="input-block__input" />
+      <!-- registration -->
+
+      <section class="workers">
+        <div class="workers__container container">
+          <div class="title workers__title">
+            <svg class="title__icon">
+              <use xlink:href="sprite.svg#worker"></use>
+            </svg>
+            <h2 class="title__text">Сотрудники</h2>
+          </div>
+
+          <div class="search workers__search">
+            <input type="search" name="search" id="search" class="input search__input" placeholder="Поиск по имени и телефону" />
+            <button class="search__button">
+              <svg class="search__icon">
+                <use xlink:href="sprite.svg#search"></use>
+              </svg>
+            </button>
+          </div>
+
+          <div class="list">
+            <div class="list__item employee">
+              <div class="employee__wrapper">
+                <div class="employee__name">
+                  <svg class="employee__icon worker">
+                    <use xlink:href="sprite.svg#worker"></use>
+                  </svg>
+                  <span class="employee__text">Rovshan Askerov</span>
+                </div>
+
+                <div class="employee__contact">
+                  <span class="employee__text">+7 (985) 929 44 11</span>
+                  <svg class="employee__icon edit">
+                    <use xlink:href="sprite.svg#edit"></use>
+                  </svg>
+                </div>
               </div>
-              <div class="form__item input-block">
-                <label for="surname" class="input-block__label">Фамилия</label>
-                <input id="surname" type="text" name="surname" placeholder="Кац" class="input-block__input" />
-              </div>
-              <div class="form__item input-block">
-                <label for="phone" class="input-block__label">Телефон</label>
-                <input id="phone" type="text" name="phone" placeholder="+7 (999) 123-44-55" class="input-block__input" />
+
+              <div class="employee__wrapper">
+                <div class="employee__notification">
+                  <svg class="employee__icon sms">
+                    <use xlink:href="sprite.svg#sms"></use>
+                  </svg>
+                  <div class="employee__paragraph">
+                    <span class="employee__text">Необходимо завершить регистрацию по SMS</span>
+                    <span class="employee__text employee__text--link">Повторить SMS с приглашением</span>
+                  </div>
+                </div>
+
+                <svg class="employee__icon trash">
+                  <use xlink:href="sprite.svg#trash"></use>
+                </svg>
               </div>
             </div>
-            <input type="submit" value="Зарегестрировать" class="form__button" />
-          </form>
-        </div>
-      </div>
-    </section>
 
-    <!-- registration -->
+            <!-- first item -->
+
+            <div class="list__item employee">
+              <div class="employee__wrapper">
+                <div class="employee__name">
+                  <svg class="employee__icon worker">
+                    <use xlink:href="sprite.svg#worker"></use>
+                  </svg>
+                  <span class="employee__text">Алина Макеева</span>
+                </div>
+
+                <div class="employee__contact">
+                  <span class="employee__text">+7 (985) 929 44 11</span>
+                  <svg class="employee__icon edit">
+                    <use xlink:href="sprite.svg#edit"></use>
+                  </svg>
+                </div>
+              </div>
+
+              <div class="employee__wrapper">
+                <div class="employee__notification">
+                  <svg class="employee__icon sms">
+                    <use xlink:href="sprite.svg#sms"></use>
+                  </svg>
+                  <div class="employee__paragraph">
+                    <span class="employee__text">Необходимо завершить регистрацию по SMS</span>
+                    <span class="employee__text employee__text--link">Повторить SMS с приглашением</span>
+                  </div>
+                </div>
+
+                <svg class="employee__icon trash">
+                  <use xlink:href="sprite.svg#trash"></use>
+                </svg>
+              </div>
+            </div>
+
+            <!-- second item -->
+
+            <div class="list__item employee">
+              <div class="employee__wrapper">
+                <div class="employee__name">
+                  <svg class="employee__icon worker">
+                    <use xlink:href="sprite.svg#worker"></use>
+                  </svg>
+                  <span class="employee__text">Команда заведения</span>
+                </div>
+
+                <div class="employee__contact">
+                  <span class="employee__text">+7 (985) 929 44 11</span>
+                  <svg class="employee__icon edit">
+                    <use xlink:href="sprite.svg#edit"></use>
+                  </svg>
+                </div>
+              </div>
+
+              <div class="employee__wrapper">
+                <div class="employee__notification">
+                  <svg class="employee__icon sms">
+                    <use xlink:href="sprite.svg#sms"></use>
+                  </svg>
+                  <div class="employee__paragraph">
+                    <span class="employee__text">Необходимо завершить регистрацию по SMS</span>
+                    <span class="employee__text employee__text--link">Повторить SMS с приглашением</span>
+                  </div>
+                </div>
+
+                <svg class="employee__icon trash">
+                  <use xlink:href="sprite.svg#trash"></use>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <!-- list of employees -->
+        </div>
+      </section>
+    </main>
   </body>
 </html>

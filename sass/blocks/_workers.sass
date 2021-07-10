@@ -1,0 +1,88 @@
+.workers
+    &__container
+        margin: auto
+    &__title
+        margin-bottom: 20px
+.search
+    position: relative
+    margin-bottom: 15px
+    width: 32%
+    &__input
+        width: 100%
+        padding-left: 65px
+    &__button
+        position: absolute
+        left: 30px
+        top: 50%
+        transform: translateY(-40%)
+        border: none
+        background-color: transparent
+        outline: none
+    &__icon
+        width: 20px
+        height: 20px
+        fill: $white
+.list
+    width: 100%
+    &__item
+        margin-bottom: 15px
+        width: 100%
+        padding: 30px 25px
+        display: flex
+        align-items: center
+        justify-content: space-between
+        border-radius: 10px
+        background-color: $lightgray
+.employee
+    &__wrapper
+        display: flex
+        align-items: center
+        justify-content: space-between
+        flex-basis: 45%
+    &__icon
+        width: 22px
+        height: 22px
+    &__text
+        font-family: 'Roboto', sans-serif
+        color: $white
+        font-style: normal
+        line-height: 1.4
+        font-size: 18px
+        &--link
+            position: relative
+            color: $yellow
+            cursor: pointer
+            width: max-content
+            &::after
+                position: absolute
+                left: 0
+                right: 0
+                bottom: 0
+                content: ''
+                width: 100%
+                height: 1px
+                background-color: $yellow
+    &__contact,
+    &__name
+        display: flex
+        align-items: center
+    &__notification
+        display: flex
+        align-items: center
+    &__paragraph
+        display: flex
+        flex-direction: column
+.worker,
+.edit
+    fill: $white
+.sms
+    fill: $yellow
+.trash
+    fill: #E8714A
+.done
+    fill: #66DD8C
+.worker,
+.sms
+    margin-right: 10px
+.edit
+    margin-left: 10px
