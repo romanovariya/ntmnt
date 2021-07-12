@@ -42,18 +42,18 @@
               <div class="form__items">
                 <div class="form__item input-item">
                   <label for="name" class="input-item__label">Имя</label>
-                  <input id="name" type="text" name="name" placeholder="Алина" class="input input-item__input" />
+                  <input id="name" type="text" name="name" placeholder="Алина" class="input input-item__input _req _name" />
                 </div>
                 <div class="form__item input-item">
                   <label for="surname" class="input-item__label">Фамилия</label>
-                  <input id="surname" type="text" name="surname" placeholder="Кац" class="input input-item__input" />
+                  <input id="surname" type="text" name="surname" placeholder="Кац" class="input input-item__input _req _surname" />
                 </div>
                 <div class="form__item input-item">
                   <label for="phone" class="input-item__label">Телефон</label>
-                  <input id="phone" type="text" name="phone" placeholder="+7 (999) 123-44-55" class="input input-item__input" />
+                  <input id="phone" type="text" name="phone" placeholder="+7 (999) 123-44-55" class="input input-item__input _req _phone" />
                 </div>
               </div>
-              <input type="submit" value="Зарегестрировать" class="form__button" />
+              <button type="submit" class="form__button" disabled>Зарегестрировать</button>
             </form>
           </div>
         </div>
@@ -79,8 +79,8 @@
             </button>
           </div>
 
-          <div class="list">
-            <div class="list__item employee">
+          <ul class="list">
+            <li class="list__item employee">
               <div class="employee__wrapper">
                 <div class="employee__name">
                   <svg class="employee__icon worker">
@@ -113,15 +113,17 @@
                   </div>
                 </div>
 
-                <svg class="employee__icon trash employee__trash">
-                  <use xlink:href="sprite.svg#trash"></use>
-                </svg>
+                <div class="delete">
+                  <svg class="employee__icon employee__trash trash">
+                    <use xlink:href="sprite.svg#trash"></use>
+                  </svg>
+                </div>
               </div>
-            </div>
+            </li>
 
             <!-- first item -->
 
-            <div class="list__item employee">
+            <li class="list__item employee">
               <div class="employee__wrapper">
                 <div class="employee__name">
                   <svg class="employee__icon worker">
@@ -154,15 +156,17 @@
                   </div>
                 </div>
 
-                <svg class="employee__icon employee__trash trash">
-                  <use xlink:href="sprite.svg#trash"></use>
-                </svg>
+                <div class="delete">
+                  <svg class="employee__icon employee__trash trash">
+                    <use xlink:href="sprite.svg#trash"></use>
+                  </svg>
+                </div>
               </div>
-            </div>
+            </li>
 
             <!-- second item -->
 
-            <div class="list__item employee">
+            <li class="list__item employee">
               <div class="employee__wrapper">
                 <div class="employee__name">
                   <svg class="employee__icon worker">
@@ -195,15 +199,19 @@
                   </div>
                 </div>
 
-                <svg class="employee__icon employee__trash trash">
-                  <use xlink:href="sprite.svg#trash"></use>
-                </svg>
+                <div class="delete">
+                  <svg class="employee__icon employee__trash trash">
+                    <use xlink:href="sprite.svg#trash"></use>
+                  </svg>
+                </div>
               </div>
-            </div>
-          </div>
+            </li>
+          </ul>
           <!-- list of employees -->
         </div>
       </section>
     </main>
+
+    <script src="main.js"></script>
   </body>
 </html>

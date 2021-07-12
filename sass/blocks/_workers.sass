@@ -23,7 +23,9 @@
         height: 20px
         fill: $white
 .list
+    padding: 0
     width: 100%
+    list-style-type: none
     &__item
         margin-bottom: 15px
         width: 100%
@@ -33,6 +35,28 @@
         justify-content: space-between
         border-radius: 10px
         background-color: $lightgray
+        &--deleted
+            // height: 0px
+            // opacity: 0
+            // transition: 0.2s all ease-out менее явная анимация
+            animation: removed-anim 0.9s ease-out
+@keyframes removed-anim
+    0%
+        opacity: 1
+        transform: translateX(0)
+
+    30%
+        opacity: 1
+        transform: translateX(50px)
+
+    80%
+        opacity: 1
+        transform: translateX(-800px)
+
+    100%
+        opacity: 0
+        transform: translateX(-800px)
+
 .employee
     &__wrapper
         display: flex
@@ -91,3 +115,5 @@
     margin-right: 10px
 .edit
     margin-left: 10px
+.delete
+    cursor: pointer
