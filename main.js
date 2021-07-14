@@ -2,7 +2,8 @@
 document.addEventListener("DOMContentLoaded", () => {
 
   const form = document.querySelector('.form'),
-    list = document.querySelector('.list');
+    list = document.querySelector('.list'),
+    search = document.querySelector('.search__input');
 
   let registeredData = new Map(JSON.parse(localStorage.getItem('registeredData')));
 
@@ -22,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
         formBtn.disabled = true;
         elem.classList.add('_error');
       } else if (elem.classList.contains('_phone')) {
-        if (elem.value.length < 11) {
+        if (elem.value.length < 12) {
           elem.classList.add('_error');
 
           if (!warn) {
@@ -81,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <svg class="employee__icon worker">
               <use xlink:href="sprite.svg#worker"></use>
             </svg>
-            <span class="employee__text">${elem.name} ${elem.surname}</span>
+            <span class="employee__text employee__text--name">${elem.name} ${elem.surname}</span>
           </div>
 
           <div class="employee__hidden">
@@ -90,7 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>
 
           <div class="employee__contact">
-            <span class="employee__text">${elem.phone}</span>
+            <span class="employee__text employee__text--phone">${elem.phone}</span>
             <svg class="employee__icon edit">
               <use xlink:href="sprite.svg#edit"></use>
             </svg>
@@ -140,7 +141,6 @@ document.addEventListener("DOMContentLoaded", () => {
           for(let key of registeredData.keys()){
             if(key === item.key) {
                 registeredData.delete(key);
-                console.log(registeredData);
             }
           }
           localStorage.setItem('registeredData', JSON.stringify([...registeredData]));
@@ -192,7 +192,6 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     registeredData.set(newWorker.key, newWorker);
-    console.log(registeredData);
     render();
     form.reset();
   });
@@ -200,4 +199,53 @@ document.addEventListener("DOMContentLoaded", () => {
 
   render();
 
+  
+
+  search.addEventListener('keyup', (event) => {
+    const target = event.target,
+       value = target.value.toLowerCase(),
+       listItems = document.querySelectorAll('.list__item');
+
+    for (let item of listItems) {
+      let itemValue = item.querySelector('.employee__text--name').innerHTML.toLowerCase() + item.querySelector('.employee__text--phone').innerHTML.toLowerCase();
+      if (itemValue.indexOf(value) == -1) {
+        item.classList.add('list__item--hidden');
+      } else {
+        item.classList.remove('list__item--hidden');
+      }
+    }
+  });
+
+
+function maskPhone(selector) {
+    const elem = document.querySelector(selector);
+
+    function mask(event) {
+      const keyCode = event.keyCode;
+      const template = '+7 (___) ___-__-__',
+        def = '+7', //код страны
+        val = this.value.replace(/\D/g, ""); //значение инпута, введенные цифры
+      
+      let i = 0,
+      newValue = template.replace(/[_\d]/g, function (a) {
+        return i < val.length ? val.charAt(i++) || def.charAt(i) : a;
+      }); //в строке шаблона заменяет цифры и подчеркивания на возвращаемое значение функции (либо 7 цифра  кода, либо введенная цифры)
+      i = newValue.indexOf("_"); //итератор переходит на следующий _
+      if (i !== -1) {
+        newValue = newValue.slice(0, i);
+      } //если дальше уже нет _, то в переменной максимум возможных символов, получится строка с номером 7 (999)-444-44-44
+      const reg = /^\+7 \(\d{1,3}\) \d{1,3}$/;
+      if (!reg.test(this.value) || keyCode > 47 && keyCode < 58) { // с 47 по 58 это цифры
+        this.value = newValue;
+      }
+
+    }
+
+      elem.addEventListener("input", mask);
+      elem.addEventListener("focus", mask);
+      elem.addEventListener("blur", mask);
+    
+  }
+
+  maskPhone('._phone');
 });
